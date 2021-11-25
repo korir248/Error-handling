@@ -12,18 +12,18 @@ class Application {
      */
     #app = express();
 
-    /**
+    /**                                                                                                                                                 
      * build application instance
      * 
      * @constructor
      */
-    constructor() {
+    constructor() {                                             
         this.#middlewares();
         this.#routes();
         this.#errors();
     }
 
-    /**
+    /**                                             
      * global middlewares
      * 
      * @private
@@ -70,6 +70,7 @@ class Application {
         // - get list of user emails from data.json asynchronously, and catch any errors
         // - if login email is not found in list of user emails then send failed response with correct status code
         // - send success response if user is found
+        
 
         // error in synchronous code
         this.#app.get('/panic/sync', (req, res) => {
