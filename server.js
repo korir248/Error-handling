@@ -70,7 +70,21 @@ class Application {
         // - get list of user emails from data.json asynchronously, and catch any errors
         // - if login email is not found in list of user emails then send failed response with correct status code
         // - send success response if user is found
-        
+        this.#app.post('/login',(req,res)=>{
+            const { email } = req.body
+            
+            JSON.parse(fs.readFileSync('data.json',(data,err)=>{
+                !email ? res.send("Email must not be blank")
+                : !Object.values(data).includes(email) ? res.status(400).send({
+                    err: err,
+                    message: "Email is invalid!"
+                })
+                : res.status(200).send({message: "Logged in successfully!"})
+
+            }));
+
+
+        })
 
         // error in synchronous code
         this.#app.get('/panic/sync', (req, res) => {
@@ -105,6 +119,7 @@ class Application {
         });
 
         // - send an alert to email using sendgrid, and call next error handler
+
 
         // not found error
         this.#app.use((err, req, res, next) => {

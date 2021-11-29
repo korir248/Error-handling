@@ -4,7 +4,7 @@
   "description": "error handling in express js",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server",
     "start:dev": "nodemon server.js"
   },
   "author": "thejitu",
@@ -13,6 +13,6 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.15"
   }
 }
